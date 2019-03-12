@@ -1,22 +1,24 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
-        <HeaderNav></HeaderNav>
-      </el-header>
-      <el-aside width="21%">
+      <el-aside width="20%">
         <AsideNav></AsideNav>
       </el-aside>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
+      <el-container>
+        <el-header>
+          <HeaderNav></HeaderNav>
+        </el-header>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import HeaderNav from "@/components/home/HeaderNav";
-import AsideNav from "@/components/home/AsideNav";
+import HeaderNav from "@/components/HeaderNav";
+import AsideNav from "@/components/AsideNav";
 
 export default {
   name: "app",
@@ -28,9 +30,6 @@ export default {
 </script>
 
 <style>
-.el-header {
-  padding: 0 0 0 0;
-}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,4 +40,10 @@ export default {
 body {
   margin: 0 0 0 0;
 }
+.el-header {
+  padding: 0 0 0 0 !important;
+}
 </style>
+<style scoped>
+</style>
+

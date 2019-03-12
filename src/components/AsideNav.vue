@@ -1,9 +1,6 @@
 <template>
   <el-col>
-    <el-menu 
-      default-active="1"
-      @open="handleOpen"
-      @close="handleClose">
+    <el-menu default-active="1">
       <el-menu-item index="1">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
