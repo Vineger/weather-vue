@@ -52,9 +52,6 @@ export default {
       return this.$store.state.weather_now;
     }
   },
-  methods: {
-    abc: function() {}
-  },
   mounted: function() {
     this.$axios
       .get(this.$store.state.baseUrl + "now")
