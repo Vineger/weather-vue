@@ -1,17 +1,18 @@
 <template>
-    <el-carousel indicator-position="outside" autoplay="false">
+  <el-carousel indicator-position="outside">
     <el-carousel-item>
-      <h1>Hello~</h1>
+      <Bar></Bar>
     </el-carousel-item>
   </el-carousel>
 </template>
 
 <script>
+import Bar from "@/components/charts/Bar";
+
 export default {
-  
-}
+  components: { Bar }
+};
 </script>
 
 <style scoped>
-
 </style>

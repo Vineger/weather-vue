@@ -1,9 +1,9 @@
 <template>
   <el-row>
-    <el-col :span="10">
+    <el-col :span="8">
       <WeatherCard></WeatherCard>
     </el-col>
-    <el-col :span="10">
+    <el-col :span="10" :offset="2">
       <TimeLine></TimeLine>
     </el-col>
   </el-row>
