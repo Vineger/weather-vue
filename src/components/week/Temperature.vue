@@ -2,7 +2,8 @@
   <StackedLine 
     :series="series" 
     :title="'温度变化曲线'" 
-    :legend="legend"></StackedLine>
+    :legend="legend"
+    :xAxis="xAxis"></StackedLine>
 </template>
 
 <style scoped>
@@ -23,33 +24,23 @@ export default {
   data() {
     return {
       legend: ["温度", "最高温度", "最低温度"],
-      xAxis: "",
+      xAxis: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
       series: []
     };
   },
   mounted() {
-    let tem = this.week["weatherMap"].map(item => {
-      return item["tem"];
-    });
-    let temMax = this.week["weatherMap"].map(item => {
-      return item["temMax"];
-    });
-    let temMin = this.week["weatherMap"].map(item => {
-      return item["temMin"];
-    });
+    let tem = this.week["weatherMap"].map(item => { return item["tem"] });
+    let temMax = this.week["weatherMap"].map(item => { return item["temMax"] });
+    let temMin = this.week["weatherMap"].map(item => { return item["temMin"] });
     this.series.push({
       name: "温度",
       type: "line",
       data: tem
-    });
-
-    this.series.push({
+    },{
       name: "最高温度",
       type: "line",
       data: temMax
-    });
-
-    this.series.push({
+    },{
       name: "最低温度",
       type: "line",
       data: temMin

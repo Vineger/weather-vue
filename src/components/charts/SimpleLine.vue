@@ -1,8 +1,8 @@
 <template>
-  <v-chart :options="option" class="chart-position echarts"/>
+  <v-chart :options="option" class="chart-position"/>
 </template>
 
-<style>
+<style scoped>
 /**
  * 默认尺寸为 600px×400px，如果想让图表响应尺寸变化，可以像下面这样
  * 把尺寸设为百分比值（同时请记得为容器设置尺寸）。
@@ -13,6 +13,7 @@
 }
 .chart-position {
   margin: auto;
+  margin-bottom: 100px;
 }
 </style>
 
@@ -23,10 +24,9 @@ import "echarts/lib/component/title"
 import "echarts/lib/component/tooltip";
 import "echarts/lib/component/legend";
 import "echarts/lib/component/toolbox";
-import "echarts/lib/component/axis"
 
 export default {
-  props: ['legend', 'xAxis', 'series', 'title'],
+  props: ["xAxis", "series", "legend", "title"],
   components: {
     "v-chart": ECharts
   },
@@ -36,26 +36,11 @@ export default {
         title: {
           text: this.title
         },
-        tooltip: {
-          trigger: "axis"
-        },
         legend: {
           data: this.legend
         },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
-        },
         xAxis: {
           type: "category",
-          boundaryGap: false,
           data: this.xAxis
         },
         yAxis: {

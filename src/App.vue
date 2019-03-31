@@ -5,9 +5,6 @@
         <AsideNav></AsideNav>
       </el-aside>
       <el-container>
-        <el-header>
-          <HeaderNav></HeaderNav>
-        </el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -17,13 +14,11 @@
 </template>
 
 <script>
-import HeaderNav from "@/components/HeaderNav";
 import AsideNav from "@/components/AsideNav";
 
 export default {
   name: "app",
   components: {
-    HeaderNav,
     AsideNav
   }
 };

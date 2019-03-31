@@ -8,12 +8,11 @@
  * 把尺寸设为百分比值（同时请记得为容器设置尺寸）。
  */
 .echarts {
-  height: 500px;
-  width: 60%;
+  height: 450px;
+  width: 800px;
 }
 .chart-position {
   margin: auto;
-  margin-bottom: 100px;
 }
 </style>
 
@@ -26,34 +25,36 @@ import "echarts/lib/component/legend";
 import "echarts/lib/component/toolbox";
 
 export default {
+  props: ["series", "title", "xAxis", "legend"],
   components: {
     "v-chart": ECharts
   },
   data() {
     return {
       option: {
-        title: {
-          text: "折线图堆叠"
-        },
         tooltip: {
           trigger: "axis"
         },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        title: {
+          text: this.title
+        },
         legend: {
-          data: ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]
+          data: this.legend
         },
         xAxis: {
           type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+          boundaryGap: false,
+          data: this.xAxis
         },
         yAxis: {
-          type: "value"
+          type: "value",
         },
-        series: [
-          {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: "bar"
-          }
-        ]
+        series: this.series
       }
     };
   }
