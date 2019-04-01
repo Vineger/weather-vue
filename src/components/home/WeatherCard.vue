@@ -1,47 +1,16 @@
 <template>
   <el-card>
-    <el-row>
-      <el-col :span="12">
-        <el-tag size="medium">温度</el-tag>
-        <span>{{" : " + weather.tem + "℃"}}</span>
-      </el-col>
-      <el-col :span="12">
-        <el-tag type="medium">体感温度</el-tag>
-        <span>{{" : " + weather.tigan + "℃"}}</span>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="12">
-        <el-tag size="medium">最高温度</el-tag>
-        <span>{{" : " + weather.temMax + "℃"}}</span>
-      </el-col>
-      <el-col :span="12">
-        <el-tag size="medium">最高温度</el-tag>
-        <span>{{" : " + weather.temMin + "℃"}}</span>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="12">
-        <el-tag size="medium">气压</el-tag>
-        <span>{{" : " + weather.prs + "Pa"}}</span>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="24">
-        <el-tag size="medium">海平面气压</el-tag>
-        <span>{{" : " + weather.prsSea + "Pa"}}</span>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="12">
-        <el-tag size="medium">相对湿度</el-tag>
-        <span>{{" : " + weather.rhu + "%"}}</span>
-      </el-col>
-      <el-col :span="12">
-        <el-tag size="medium">风力</el-tag>
-        <span>{{" : " + weather.windpower + "级"}}</span>
-      </el-col>
-    </el-row>
+    <el-table :data="weather" style="width: 100%">
+      <el-table-column prop="tem" label="温度"></el-table-column>
+      <el-table-column prop="temMax" label="最高温度"></el-table-column>
+      <el-table-column prop="temMin" label="最低温度"></el-table-column>
+      <el-table-column prop="tigan" label="体感温度"></el-table-column>
+      <el-table-column prop="prs" label="气压"></el-table-column>
+      <el-table-column prop="prsSea" label="海平面气压"></el-table-column>
+      <el-table-column prop="vap" label="水汽压"></el-table-column>
+      <el-table-column prop="rhu" label="相对湿度"></el-table-column>
+      <el-table-column prop="windpower" label="风力级别"></el-table-column>
+    </el-table>
   </el-card>
 </template>
 
@@ -49,7 +18,7 @@
 export default {
   computed: {
     weather() {
-      return this.$store.state.weather_now;
+      return [this.$store.state.weather_now];
     }
   },
   mounted: function() {
@@ -66,7 +35,4 @@ export default {
 </script>
 
 <style scoped>
-.el-row {
-  margin-bottom: 15px;
-}
 </style>

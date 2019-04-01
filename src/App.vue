@@ -20,6 +20,13 @@ export default {
   name: "app",
   components: {
     AsideNav
+  },
+  mounted() {
+    this.$notify({
+      title: "欢迎(。・∀・)ノ",
+      message: this.$createElement("i", "欢迎进入天气统计分析系统"),
+      position: "bottom-right"
+    });
   }
 };
 </script>
@@ -30,7 +37,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  height: 100%
+  height: 100%;
 }
 body {
   margin: 0 0 0 0;

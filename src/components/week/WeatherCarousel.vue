@@ -1,27 +1,48 @@
 <template>
-  <el-tabs>
-    <el-tab-pane label="温度变化">
-      <Temperature></Temperature>
-    </el-tab-pane>
-        <el-tab-pane label="降雨量">
-      <Rainfall></Rainfall>
-    </el-tab-pane>
-    <el-tab-pane label="气压变化">
-      <AirPressure></AirPressure>
-    </el-tab-pane>
-    <el-tab-pane label="相对湿度变化">
-      <Humidity></Humidity>
+  <el-tabs @tab-click="tabClickEventHandler">
+    <el-tab-pane
+      :lazy="'true'"
+      v-for="(item, index) in tabs" 
+      :label="item.label"
+      :key="index">
+      <component :is="item.content"></component>
     </el-tab-pane>
   </el-tabs>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      active: "Temperature",
+      tabs: [
+        {
+          label: "温度变化",
+          content: "Temperature"
+        },
+        {
+          label: "降雨量变化",
+          content: "Rainfall"
+        },
+        {
+          label: "气压变化",
+          content: "AirPressure"
+        },
+        {
+          label: "相对湿度变化",
+          content: "Humidity"
+        }
+      ]
+    };
+  },
+  methods: {
+    tabClickEventHandler() {}
+  },
   components: {
     Temperature: () => import("./Temperature"),
-    Rainfall: () => import('./Rainfall'),
-    AirPressure: () => import('./AirPressure'),
-    Humidity: () => import('./Humidity')
+    Rainfall: () => import("./Rainfall"),
+    AirPressure: () => import("./AirPressure"),
+    Humidity: () => import("./Humidity")
   }
 };
 </script>

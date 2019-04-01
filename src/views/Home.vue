@@ -1,20 +1,35 @@
 <template>
-  <el-row>
-    <el-col :span="8">
-      <WeatherCard></WeatherCard>
-    </el-col>
-    <el-col :span="10" :offset="2">
-      <TimeLine></TimeLine>
-    </el-col>
-  </el-row>
+  <div>
+    <el-row>
+      <el-col>
+        <WeatherCard></WeatherCard>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="11">
+        <TimeLine></TimeLine>
+      </el-col>
+      <el-col :offset="1" :span="10">
+        <InfoCollapse></InfoCollapse>
+      </el-col>
+    </el-row>
+  </div>
 </template>
+
+<style scoped>
+.el-row {
+  margin-bottom: 50px;
+}
+</style>
+
 
 <script>
 import WeatherCard from "@/components/home/WeatherCard";
 import TimeLine from "@/components/home/TimeLine";
+import InfoCollapse from "@/components/home/InfoCollapse";
 
 export default {
   name: "home",
-  components: { WeatherCard, TimeLine }
+  components: { WeatherCard, TimeLine, InfoCollapse }
 };
 </script>
