@@ -30,6 +30,17 @@ import InfoCollapse from "@/components/home/InfoCollapse";
 
 export default {
   name: "home",
-  components: { WeatherCard, TimeLine, InfoCollapse }
+  components: { WeatherCard, TimeLine, InfoCollapse },
+    mounted() {
+    this.$axios
+      .get(this.$store.state.baseUrl + "now")
+      .then(function(response) {
+        this.$store.commit("set_weather_now", response.data);
+        console.log(data)
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 };
 </script>

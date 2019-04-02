@@ -1,5 +1,5 @@
 <template>
-  <el-tabs @tab-click="tabClickEventHandler">
+  <el-tabs>
     <el-tab-pane
       :lazy="'true'"
       v-for="(item, index) in tabs" 
@@ -34,9 +34,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    tabClickEventHandler() {}
   },
   components: {
     Temperature: () => import("./Temperature"),

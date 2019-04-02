@@ -21,16 +21,6 @@ export default {
       return [this.$store.state.weather_now];
     }
   },
-  mounted: function() {
-    this.$axios
-      .get(this.$store.state.baseUrl + "now")
-      .then(function(response) {
-        this.$store.commit("set_weather_now", response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
 };
 </script>
 

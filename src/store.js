@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    baseUrl: 'http://locahost:80/',
+    baseUrl: 'http://localhost:8080/',
     weather_now: {
       "tem": 22.7,
       "temMax": 23.2,
@@ -40,13 +40,13 @@ export default new Vuex.Store({
   },
   mutations: {
     set_weather_now(state, weather) {
-      state.weather_now = weather
+      this.state.weather_now = weather
     },
     set_weather_week(state, weather) {
-      state.weather_week = weather
+      this.state.weather_week = weather
     },
     set_weather_month(state, weather){
-      state.weather_month = weather
+      this.state.weather_month = weather
     }
   },
   actions: {

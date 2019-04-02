@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
+  <el-tabs value="1" type="card">
     <el-tab-pane label="气温" name="1">
       <div>
         &nbsp;&nbsp;&nbsp;&nbsp;大气层中气体的温度是气温，是气象学常用名词。
