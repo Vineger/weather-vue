@@ -18,15 +18,39 @@ import AsideNav from "@/components/AsideNav";
 
 export default {
   name: "app",
-  components: {
-    AsideNav
+  components: { AsideNav },
+  computed: {
+    location() {
+      return this.$store.state.baseUrl
+    }
   },
   mounted() {
+    let message = this.$message;
+    let store = this.$store;
+
     this.$notify({
       title: "欢迎(。・∀・)ノ",
       message: this.$createElement("i", "欢迎进入天气统计分析系统"),
       position: "bottom-right"
     });
+
+    this.$axios
+      .get(this.location + "now")
+      .then(function(response) {
+        store.commit("set_weather_now", response.data);
+      })
+      .catch(function() {
+        message.error("服务出现了一些错误(っ °Д °;)っ");
+      });
+
+    this.$axios
+      .get(this.location + "week")
+      .then(function(response) {
+        store.commit("set_weather_week", response.data);
+      })
+      .catch(function() {
+        message.error("服务出现了一些错误(っ °Д °;)っ");
+      });
   }
 };
 </script>
@@ -48,7 +72,5 @@ body {
 .auto-height {
   height: 100%;
 }
-</style>
-<style scoped>
 </style>
 

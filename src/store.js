@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    baseUrl: 'http://localhost:8080/',
+    baseUrl: 'http://120.78.68.49:80/',
     weather_now: {
       "tem": 22.7,
       "temMax": 23.2,
