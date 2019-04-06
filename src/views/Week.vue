@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a class="el-button" onclick="return false" :href="location + 'week/excel'">导出Excel数据</a>
+    <a class="el-button" download="" :href="location + 'week/excel'">导出Excel数据</a>
     <WeatherWeek></WeatherWeek>
   </div>
 </template>
