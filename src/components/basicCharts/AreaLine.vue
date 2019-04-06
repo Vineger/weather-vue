@@ -1,5 +1,5 @@
 <template>
-  <v-chart :options="option" class="chart-position echarts"/>
+  <v-chart :options="option" class="chart-position"/>
 </template>
 
 <style>
@@ -19,48 +19,40 @@
 <script>
 import ECharts from "vue-echarts";
 import "echarts/lib/chart/line";
-import "echarts/lib/component/title"
 import "echarts/lib/component/tooltip";
+import "echarts/lib/component/title";
 import "echarts/lib/component/legend";
 import "echarts/lib/component/toolbox";
-import "echarts/lib/component/axis"
+import 'echarts/lib/component/markPoint';
 
 export default {
-  props: ['legend', 'xAxis', 'series', 'title'],
+  props: ["series", "title", "xAxis", "legend", 'yAxis'],
   components: {
     "v-chart": ECharts
   },
   data() {
     return {
       option: {
-        title: {
-          text: this.title
-        },
         tooltip: {
           trigger: "axis"
-        },
-        legend: {
-          data: this.legend
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
         },
         toolbox: {
           feature: {
             saveAsImage: {}
           }
         },
+        title: {
+          text: this.title
+        },
+        legend: {
+          data: this.legend
+        },
         xAxis: {
           type: "category",
           boundaryGap: false,
           data: this.xAxis
         },
-        yAxis: {
-          type: "value"
-        },
+        yAxis: this.yAxis,
         series: this.series
       }
     };

@@ -1,12 +1,12 @@
 <template>
-  <WeatherCarousel></WeatherCarousel>
+  <WeatherWeek></WeatherWeek>
 </template>
 
 <script>
-import WeatherCarousel from "@/components/week/WeatherCarousel";
+import WeatherWeek from "@/components/week/WeatherWeek";
 
 export default {
-  components: { WeatherCarousel },
+  components: { WeatherWeek },
   mounted() {
     this.$axios
       .get(this.$store.state.baseUrl + "week")

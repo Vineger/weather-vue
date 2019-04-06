@@ -3,11 +3,12 @@
     :title="'气压变化'"
     :legend="legend"
     :series="series"
-    :xAxis="xAxis"></StackedLine>
+    :xAxis="xAxis"
+    :yAxis="yAxis"></StackedLine>
 </template>
 
 <script>
-import StackedLine from '@/components/charts/StackedLine'
+import StackedLine from '@/components/basicCharts/Line'
 
 export default {
   components: { StackedLine },
@@ -20,7 +21,13 @@ export default {
     return {
       legend: ['大气压', '海平面大气压', '水汽压'],
       series: [],
-      xAxis: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      xAxis: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          formatter: '{value} Pa'
+        }
+      }
     }
   },
   mounted() {

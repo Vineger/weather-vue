@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-col>
-        <WeatherCard></WeatherCard>
+        <WeatherNow></WeatherNow>
       </el-col>
     </el-row>
     <el-row>
@@ -24,23 +24,19 @@
 
 
 <script>
-import WeatherCard from "@/components/home/WeatherCard";
+import WeatherNow from "@/components/home/WeatherNow";
 import TimeLine from "@/components/home/TimeLine";
 import InfoCollapse from "@/components/home/InfoCollapse";
 
 export default {
   name: "home",
-  components: { WeatherCard, TimeLine, InfoCollapse },
+  components: { WeatherNow, TimeLine, InfoCollapse },
     mounted() {
     this.$axios
       .get(this.$store.state.baseUrl + "now")
       .then(function(response) {
         this.$store.commit("set_weather_now", response.data);
-        console.log(data)
       })
-      .catch(function(error) {
-        console.log(error);
-      });
   }
 };
 </script>

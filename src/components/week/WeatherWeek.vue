@@ -1,7 +1,7 @@
 <template>
   <el-tabs>
     <el-tab-pane
-      :lazy="'true'"
+      :lazy="Boolean(true)"
       v-for="(item, index) in tabs" 
       :label="item.label"
       :key="index">
@@ -36,10 +36,10 @@ export default {
     };
   },
   components: {
-    Temperature: () => import("./Temperature"),
-    Rainfall: () => import("./Rainfall"),
-    AirPressure: () => import("./AirPressure"),
-    Humidity: () => import("./Humidity")
+    Temperature: () => import("./charts/Temperature"),
+    Rainfall: () => import("./charts/Rainfall"),
+    AirPressure: () => import("./charts/AirPressure"),
+    Humidity: () => import("./charts/Humidity")
   }
 };
 </script>

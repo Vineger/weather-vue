@@ -1,17 +1,10 @@
 <template>
-    <el-carousel indicator-position="outside" autoplay="false">
-    <el-carousel-item>
-      <h1>Hello~</h1>
-    </el-carousel-item>
-  </el-carousel>
+  <div></div>
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style scoped>
-
 </style>
