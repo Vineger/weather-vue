@@ -1,32 +1,53 @@
 <template>
   <div id="app">
-    <el-container class="auto-height">
-      <el-aside width="20%">
-        <AsideNav></AsideNav>
-      </el-aside>
-      <el-container>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-      </el-container>
-    </el-container>
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%">
+      <span>您尚未登陆，无法使用该功能，请先登陆</span>
+      <span slot="footer">
+        <el-button type="primary" @click="handlerSignin">登陆</el-button>
+        <el-button @click="dialogVisible = false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import AsideNav from "@/components/AsideNav";
-
 export default {
   name: "app",
-  components: { AsideNav },
   computed: {
     location() {
       return this.$store.state.baseUrl;
+    },
+    state() {
+      return this.$store.state.user_state;
+    }
+  },
+  data() {
+    return {
+      dialogVisible: false
+    }
+  },
+  methods: {
+    handlerSignin() {
+      this.dialogVisible = false;
+      this.$router.push({name: 'signin'});
     }
   },
   mounted() {
     let message = this.$message;
     let store = this.$store;
+
+    this.$router.beforeEach((to, from, next) => {
+      if (to.name == 'display' && this.state == false) {
+        this.dialogVisible = true;
+        next(false);
+      } else {
+        next();
+      }
+    })
 
     this.$notify({
       title: "欢迎(。・∀・)ノ",
@@ -66,7 +87,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

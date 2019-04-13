@@ -3,6 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+/*
+*  虚拟机地址：http://localhost:8080/
+*  云服务器地址：http://120.78.68.49:80/
+*/
+
 export default new Vuex.Store({
   state: {
     baseUrl: 'http://120.78.68.49:80/',
@@ -38,6 +43,8 @@ export default new Vuex.Store({
         },
       weather_month: {},
       display_request_arg: {},
+      user_state: false,
+      user_name: '',
   },
   mutations: {
     set_weather_now(state, weather) {
@@ -51,6 +58,12 @@ export default new Vuex.Store({
     },
     set_display_request_arg(state, value) {
       this.state.display_request_arg = value;
+    },
+    set_user_state(state, value) {
+      this.state.user_state = value;
+    },
+    set_user_name(state, value) {
+      this.state.user_name = value;
     }
   },
   actions: {
