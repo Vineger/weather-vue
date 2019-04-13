@@ -18,14 +18,16 @@ export default {
     StackedLine
   },
   computed: {
-    week() {
-      return this.$store.state.weather_week;
+    month() {
+      return this.$store.state.weather_month;
     }
   },
   data() {
     return {
       legend: ["温度", "最高温度", "最低温度"],
-      xAxis: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+      xAxis: ['1','2','3','4','5','6','7','8','9','10','11','12','13',
+      '14','15','16','17','18','19','20','21','22','23','24','25','26'
+      ,'27','28','29','30','31'],
       yAxis: {
         type: "value",
         axisLabel: {
@@ -36,9 +38,9 @@ export default {
     };
   },
   mounted() {
-    let tem = this.week["weatherMap"].map(item => { return item["tem"].substr(0, 4) });
-    let temMax = this.week["weatherMap"].map(item => { return item["temMax"].substr(0, 4) });
-    let temMin = this.week["weatherMap"].map(item => { return item["temMin"].substr(0, 4) });
+    let tem = this.month["weatherDates"].map(item => { return item["tem"].substr(0, 4) });
+    let temMax = this.month["weatherDates"].map(item => { return item["temMax"].substr(0, 4) });
+    let temMin = this.month["weatherDates"].map(item => { return item["temMin"].substr(0, 4) });
     this.series.push(
       {
         name: "温度",

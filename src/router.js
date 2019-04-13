@@ -22,6 +22,11 @@ export default new Router({
       path: '/weather/month',
       name: 'month',
       component: () => import('./views/Month')
+    },
+    {
+      path: '/weather/display',
+      name: 'display',
+      component: () => import('./views/Display')
     }
   ]
 })

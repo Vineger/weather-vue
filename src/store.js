@@ -37,6 +37,7 @@ export default new Vuex.Store({
           "pre":0.8000001
         },
       weather_month: {},
+      display_request_arg: {},
   },
   mutations: {
     set_weather_now(state, weather) {
@@ -45,8 +46,11 @@ export default new Vuex.Store({
     set_weather_week(state, weather) {
       this.state.weather_week = weather
     },
-    set_weather_month(state, weather){
+    set_weather_month(state, weather) {
       this.state.weather_month = weather
+    },
+    set_display_request_arg(state, value) {
+      this.state.display_request_arg = value;
     }
   },
   actions: {

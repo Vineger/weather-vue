@@ -12,6 +12,10 @@
       <i class="el-icon-setting"></i>
       <span slot="title">上月数据</span>
     </el-menu-item>
+    <el-menu-item index="4" @click="toDisplayView">
+      <i class="el-icon-setting"></i>
+      <span slot="title">自定义数据</span>
+    </el-menu-item>
   </el-menu>
 </template>
 
@@ -26,6 +30,9 @@ export default {
     },
     last_month: function() {
       this.$router.push({ name: "month" });
+    },
+    toDisplayView() {
+      this.$router.push({ name: "display" });
     }
   }
 };

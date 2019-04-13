@@ -27,7 +27,9 @@ export default {
           ]
         }
       },
-      xAxis: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+      xAxis: ['1','2','3','4','5','6','7','8','9','10','11','12','13',
+      '14','15','16','17','18','19','20','21','22','23','24','25','26'
+      ,'27','28','29','30','31'],
       yAxis: {
         type: 'value',
         axisLabel: {
@@ -37,12 +39,12 @@ export default {
     }
   },
   computed: {
-    week() {
-      return this.$store.state.weather_week;
+    month() {
+      return this.$store.state.weather_month;
     }
   },
   mounted() {
-    this.series.data = this.week['weatherMap'].map((item) => {return item['pre'].substr(0, 5)});
+    this.series.data = this.month['weatherDates'].map((item) => {return item['pre'].substr(0, 5)});
   },
 }
 </script>

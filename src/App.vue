@@ -21,7 +21,7 @@ export default {
   components: { AsideNav },
   computed: {
     location() {
-      return this.$store.state.baseUrl
+      return this.$store.state.baseUrl;
     }
   },
   mounted() {
@@ -47,6 +47,15 @@ export default {
       .get(this.location + "week")
       .then(function(response) {
         store.commit("set_weather_week", response.data);
+      })
+      .catch(function() {
+        message.error("服务出现了一些错误(っ °Д °;)っ");
+      });
+
+    this.$axios
+      .get(this.location + "month")
+      .then(function(response) {
+        store.commit("set_weather_month", response.data);
       })
       .catch(function() {
         message.error("服务出现了一些错误(っ °Д °;)っ");
